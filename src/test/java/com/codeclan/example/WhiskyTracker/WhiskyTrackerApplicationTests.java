@@ -37,4 +37,11 @@ public class WhiskyTrackerApplicationTests {
 		List<Distillery> found = distilleryRepository.getDistilleriesByRegion("Speyside");
 	}
 
+	@Test
+	public void canGetWhiskiesFromRegionOverCertainAge(){
+		Distillery distillery = new Distillery("hello", "speyside");
+		distilleryRepository.save(distillery);
+		List<Whisky> found = whiskyRepository.findWhiskiesFromRegionsOverCertainAge(distillery, 1);
+	}
+
 }
